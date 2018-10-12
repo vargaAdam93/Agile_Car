@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var carRouter = express.Router();
 
-var Car = required('../Model/car');
+var Car = require('../Models/car');
 
 //Post
 carRouter.route('/add/post').post(

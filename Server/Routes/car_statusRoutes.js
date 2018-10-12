@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var car_statusRouter = express.Router();
 
-var Car_status = required('../Model/car_status');
+var Car_status = require('../Models/car_status');
 
 //Post
 car_statusRouter.route('/add/post').post(
