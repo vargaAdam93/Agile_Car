@@ -14,7 +14,7 @@ car_statusRouter.route('/add/post').post(
 //GET
 car_statusRouter.route('/').get(
     function (req, res) {
-        Car.find(
+        Car_status.find(
             function (err, cars) {
                 if(err)
                 {

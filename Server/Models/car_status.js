@@ -7,7 +7,10 @@ var CarStatus = new Schema({
         car_plate: String,
         fuel: Number,
         total_km: Number,
-        error_messages: [{error_message: String}]
+        error_messages: [{error_message: String}],
+        pos_x: Number,
+        pos_y: Number,
+        date: {type: Date, default: Date.now}
     },
     {
         collection: 'car_status'

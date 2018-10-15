@@ -7,9 +7,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AddUser from './Components/AddUser';
 import LoginUser from './Components/LoginUser';
+import IndexCars from './Components/ShowCars'
 
 ReactDOM.render(<Router>
                 <div>
+                    <Route exact path='/' component={IndexCars} />
                     <Route path='/add-user' component={AddUser}/>
                     <Route path='/login' component={ LoginUser}/>
                 </div>
