@@ -8,6 +8,9 @@ var CarStatus = new Schema({
         fuel: Number,
         total_km: Number,
         error_messages: [{error_message: String}],
+        speed: Number,
+        throttle: Number,
+        using_by: String,
         pos_x: Number,
         pos_y: Number,
         date: {type: Date, default: Date.now}

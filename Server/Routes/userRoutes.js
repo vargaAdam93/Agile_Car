@@ -34,7 +34,8 @@ userRouter.route('/register/post').post(
         newUser.name = req.body.name;
         newUser.password = req.body.password;
         newUser.type = req.body.type;
-        var query = User.where({ email: req.body.email});
+        newUser.licence_number = req.body.licence_number;
+        var query = User.where({ email: req.body.licence_number});
         query.findOne(
             function (err, user) {
                 if(err) return res.status(404).send("error");
