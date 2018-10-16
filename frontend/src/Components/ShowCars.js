@@ -65,7 +65,7 @@ class IndexCars extends Component {
                 <div className="container">
                     <MyMapComponent
                         isMarkerShown
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZS3pV4ShbFmDzYK3SowlOi--wPKq1Now&v=3.exp&libraries=geometry,drawing,places"
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=APIkey&v=3.exp&libraries=geometry,drawing,places"
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
