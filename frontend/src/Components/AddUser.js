@@ -52,27 +52,27 @@ class AddUser extends Component {
     render()
     {
         return(
-            <div className="container"  style={{padding: 50,margin: 10,  justifyContent: 'center',display: 'flex',}}>
+            <div className="add-user"  style={{padding: 50,margin: 10,  justifyContent: 'center',display: 'flex',}}>
                 <form onSubmit={this.handleSubmit} >
 
                     <label>
                         Name:
-                        <input type="text" value={this.state.name} onChange={this.NamehandleChange} className="form-control"/>
+                        <input name="user-name" type="text" value={this.state.name} onChange={this.NamehandleChange} className="form-control"/>
                     </label>
                     <br/>
                     <label>
                         Email:
-                        <input type="text" value={this.state.email} onChange={this.EmailhandleChange} className="form-control"/>
+                        <input name="user-email" type="text" value={this.state.email} onChange={this.EmailhandleChange} className="form-control"/>
                     </label>
                     <br/>
                     <label>
                         Password:
-                        <input type="password" value={this.state.password} onChange={this.PasswdhandleChange} className="form-control"/>
+                        <input name="user-password" type="password" value={this.state.password} onChange={this.PasswdhandleChange} className="form-control"/>
                     </label>
                     <br/>
                     <label>
                         Licence number:
-                        <input type="text" value={this.state.licence_number} onChange={this.licencenumberHandleChange} className="form-control"/>
+                        <input name="user-licence" type="text" value={this.state.licence_number} onChange={this.licencenumberHandleChange} className="form-control"/>
                     </label>
                     <br/>
                     <select onChange={this.selectChangedHandleEvent} value={this.state.type}>

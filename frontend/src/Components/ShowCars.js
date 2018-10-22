@@ -62,7 +62,7 @@ class IndexCars extends Component {
             ));
 
             return(
-                <div className="container">
+                <div className="Loaded">
                     <MyMapComponent
                         isMarkerShown
                         googleMapURL="https://maps.googleapis.com/maps/api/js?key=APIkey&v=3.exp&libraries=geometry,drawing,places"
@@ -79,7 +79,7 @@ class IndexCars extends Component {
         else
         {
             return (
-                <div>
+                <div data-testid="car-text" className="notLoaded">
                     Loading...
                 </div>
             )
