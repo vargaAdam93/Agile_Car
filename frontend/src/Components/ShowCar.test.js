@@ -13,6 +13,13 @@ describe('<IndexCar />', () => {
     });
     it('renders a loaded div', () => {
         const map = shallow( <IndexCars/>);
-        expect(map.find('div.Loaded').length).toEqual(0);
+        map.setState({loaded:1});
+        expect(map.find('div.Loaded').length).toEqual(1);
+    });
+
+    it('renders a map element', () => {
+        const map = shallow( <IndexCars/>);
+        map.setState({loaded:1});
+        expect(map.text()).toEqual('<withScriptjs(withGoogleMap(Component)) /><Link />');
     });
 });

@@ -38,7 +38,23 @@ describe('<AddUser />', () => {
         const User = shallow( <AddUser/>);
         const Wrapper = User.find('[name="user-email"]');
         Wrapper.simulate('change', {target: {value: 'ASD@gasd.com'}});
-        expect(User.state('email')).stringMatching('@');
+        expect(User.state('email')).toEqual(expect.stringContaining('@'));
+
+    });
+
+    it('Checks if state change in case of input in password field', () => {
+        const User = shallow( <AddUser/>);
+        const Wrapper = User.find('[name="user-password"]');
+        Wrapper.simulate('change', {target: {value: 'ASD'}});
+        expect(User.state('password').length).toEqual(3);
+
+    });
+
+    it('Checks if state change in case of input in licence number field', () => {
+        const User = shallow( <AddUser/>);
+        const Wrapper = User.find('[name="user-licence"]');
+        Wrapper.simulate('change', {target: {value: 'ASD'}});
+        expect(User.state('licence_number').length).toEqual(3);
 
     });
 });
