@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-logging": "^1.1.1",
+    "logops": "^2.1.0",
+    "mongoose": "^5.3.11"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "supertest": "^3.3.0"
+  },
+  "scripts" : {
+    "test" : "node_modules/.bin/mocha -u exports test/integration/*"
+  }
+}

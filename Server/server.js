@@ -27,3 +27,5 @@ app.use('/users', userRouter);
 app.listen(port, function(){
     console.log('Server is running on Port: ',port);
 });
+
+module.exports = app;
