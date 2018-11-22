@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom'
 import axios from 'axios';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Select from 'react-select';
+import ReactTable from 'react-table';
+import "react-table/react-table.css";
+
 const { MarkerWithLabel } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
 class IndexCars extends Component {
 
@@ -45,18 +48,30 @@ class IndexCars extends Component {
             const position =[0,0];
             console.log(this.state.cars);
             let cars = this.state.cars;
-            if(this.state.selectedOption.value === '')
-            {
-                console.log("ASDasd");
-            }
-            else
+            if(this.state.selectedOption.value !== undefined)
             {
                 cars = [];
-                for (var i in this.state.cars) {
+                for (let i in this.state.cars) {
                     if (this.state.selectedOption.value === this.state.cars[i].car_plate)
                         cars.push(this.state.cars[i]);
                 }
             }
+            const columns = [{
+                Header: "Plate-number",
+                accessor: "car_plate"
+                },
+                {
+                    Header: "Fuel quantity",
+                    accessor: "fuel"
+                },
+                {
+                    Header: "Throttle padle state",
+                    accessor: "throttle"
+                },
+                {
+                    Header: "Using",
+                    accessor: "using_by"
+                }];
             const MyMapComponent = withScriptjs(withGoogleMap((props) =>
                 <GoogleMap
                     defaultZoom={13}
@@ -92,12 +107,23 @@ class IndexCars extends Component {
                    value: plate, label: plate
                })
             }
-
+            let table_data = this.state.cars;
+            if (this.state.selectedOption.value !== undefined)
+            {
+                table_data = [];
+                for(let i in this.state.cars)
+                {
+                    if(this.state.cars[i].car_plate === this.state.selectedOption.value)
+                    {
+                        table_data.push(this.state.cars[i]);
+                    }
+                }
+            }
             return(
                 <div className="Loaded">
                     <MyMapComponent
                         isMarkerShown
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=APi key&v=3.exp&libraries=geometry,drawing,places"
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=API key&v=3.exp&libraries=geometry,drawing,places"
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
@@ -112,6 +138,11 @@ class IndexCars extends Component {
                     <br/>
                     <button onClick={this.show_only_bad_cars} >Show cars with error</button>
                     <br/>
+                    <ReactTable
+                        columns={columns}
+                        data = {table_data}
+                        className="-striped -highlight"
+                    />
                     <Link to="/add-user">Register</Link>
                 </div>
             )
