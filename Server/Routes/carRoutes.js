@@ -7,8 +7,25 @@ var Car = require('../Models/car');
 //Post
 carRouter.route('/add/post').post(
     function (req, res) {
-        console.log(req.body);
-    }
+		var newCar = Car();
+		newCar.plate_number = req.body.plate_number;
+		newCar.type = req.body.type;
+		var query = Car.where({ plate_number: req.body.plate_number});
+		query.findOne(
+            function (err, car) {
+				if(err) return res.status(404).send("error");
+                if(car === null)
+                {
+					newCar.save().then( newCar =>{
+                        res.json('Registered new car,')
+                    })
+                        .catch( err => {res.status(400).send("Car is already registered");})
+				}
+				else
+				{ res.status(400).send("Car is already registered"); }
+			}
+		)
+	}
 );
 
 //GET

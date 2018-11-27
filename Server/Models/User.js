@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-//Define collection and schema for coordinates
+//Define collection and schema for users
 var User = new Schema({
         name: String,
         email: String,
